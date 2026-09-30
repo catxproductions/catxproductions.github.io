@@ -16,7 +16,6 @@
             flex-direction: column;
         }
 
-        /* top bar */
         .topbar {
             display: flex;
             align-items: center;
@@ -47,7 +46,6 @@
             color: #888;
         }
 
-        /* three columns: black strip | main | sidebar */
         .layout {
             flex: 1;
             display: grid;
@@ -101,7 +99,6 @@
             line-height: 1.4;
         }
 
-        /* stack on small screens */
         @media (max-width: 900px) {
             .layout { grid-template-columns: 1fr; }
             .image { margin-left: 0; height: 220px; font-size: 50px; }
@@ -119,7 +116,7 @@
         <div></div>
 
         <main class="main">
-            <div class="image">plc hlder</div>
+            <div class="image">plc hldr</div>
             <h2>About Us</h2>
             <p>Hello! We are Acidic, thank you for visiting our website!</p>
         </main>
@@ -129,8 +126,12 @@
             <p>We are Acidic </p>
         </aside>
     </div>
+
+    <script src="https://cdn.jsdelivr.net/gh/catxproductions/accntsystmhidden@main/auth.js"></script>
     <script>
-        // put the email/account system here
+      if (!accountSystem.isAuthenticated()) {
+        window.location.href = "https://catxproductions.github.io/accntsystmhidden/login.html";
+      }
     </script>
 </body>
 </html>
