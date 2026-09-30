@@ -1,0 +1,133 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>thingy</title>
+    <style>
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            background: #000;
+            font-family: "Segoe UI", Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* top bar */
+        .topbar {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            margin: 10px 0 0 10px;
+            padding: 10px 14px;
+            background: #220505;
+            border: 1px solid #a01818;
+            border-right: none;
+            border-radius: 14px 0 0 0;
+        }
+        .logo {
+            width: 76px;
+            height: 76px;
+            border-radius: 50%;
+            background: #000;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            flex-shrink: 0;
+        }
+        .topbar h1 {
+            margin: 0;
+            font-size: 52px;
+            font-weight: 400;
+            color: #888;
+        }
+
+        /* three columns: black strip | main | sidebar */
+        .layout {
+            flex: 1;
+            display: grid;
+            grid-template-columns: 90px 1fr 500px;
+        }
+
+        .main {
+            background: #880808;
+            padding: 16px 20px;
+            color: #1a0000;
+        }
+        .image {
+            width: 650px;
+            max-width: 100%;
+            height: 360px;
+            margin: 0 0 20px 160px;
+            background: #000;
+            color: #fff;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 80px;
+        }
+        .main h2 {
+            margin: 0;
+            font-size: 60px;
+            font-weight: 400;
+        }
+        .main p {
+            max-width: 540px;
+            margin: 0 0 0 55px;
+            font-size: 22px;
+            line-height: 1.35;
+        }
+
+        .sidebar {
+            background: #440404;
+            border-left: 2px solid #260202;
+            padding: 30px 16px;
+            color: #d43030;
+        }
+        .sidebar h3 {
+            margin: 0 0 12px 46px;
+            font-size: 32px;
+            font-weight: 400;
+        }
+        .sidebar p {
+            margin: 0;
+            font-size: 17px;
+            line-height: 1.4;
+        }
+
+        /* stack on small screens */
+        @media (max-width: 900px) {
+            .layout { grid-template-columns: 1fr; }
+            .image { margin-left: 0; height: 220px; font-size: 50px; }
+            .main p { margin-left: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="topbar">
+        <div class="logo">logo</div>
+        <h1>Heading text</h1>
+    </div>
+
+    <div class="layout">
+        <div></div>
+
+        <main class="main">
+            <div class="image">image</div>
+            <h2>HEADER</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipiscing elit est duis voluptate tempore quo est deleniti pariatur expedita et cillum libero fuga dolorum laborum cupidatat praesentium tempor optio aliqua similique nisi ad pariatur fuga voluptatum et ex eligendi magna lorem sint quo voluptas do quo praesentium.</p>
+        </main>
+
+        <aside class="sidebar">
+            <h3>HEADING</h3>
+            <p>lorem ipsum dolor sit amet consectetur adipiscing elit est qui officia et pariatur est voluptate deserunt repellendus temporibus non qui expedita nisi iusto aut deserunt officia velit deleniti quo facilis expedita animi cupidatat cillum qui laborum ut officia assumenda quod nulla corrupti laborum deserunt voluptate velit id minus elit aut ducimus in et cumque soluta dolorum commodo qui similique et ullamco nulla at nulla facilis laboris cum cupiditate minus maxime fuga voluptas qui dignissimos aute assumenda laborum amet nostrud maxime facilis libero dolor.</p>
+        </aside>
+    </div>
+</body>
+</html>
