@@ -133,5 +133,53 @@
         window.location.href = "https://catxproductions.github.io/accntsystmhidden/login.html";
       }
     </script>
+    <div id="authBox" style="position:fixed;top:20px;right:20px;z-index:9999;padding:10px 14px;border-radius:12px;background:#111827;color:white;border:1px solid #334155;">
+  <div id="authStatus">Not signed in</div>
+  <div style="margin-top:8px;display:flex;gap:8px;flex-wrap:wrap;">
+    <button id="showLogin" type="button">Sign in</button>
+    <button id="logoutBtn" type="button" style="display:none;">Log out</button>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/gh/catxproductions/accntsystmhidden@main/auth.js"></script>
+<script>
+  const authStatus = document.getElementById('authStatus');
+  const showLoginBtn = document.getElementById('showLogin');
+  const logoutBtn = document.getElementById('logoutBtn');
+
+  function updateAuthUI() {
+    const user = accountSystem.getCurrentUser();
+    if (user) {
+      authStatus.textContent = 'Signed in as ' + user.username;
+      logoutBtn.style.display = 'inline-block';
+    } else {
+      authStatus.textContent = 'Not signed in';
+      logoutBtn.style.display = 'none';
+    }
+  }
+
+  showLoginBtn.addEventListener('click', () => {
+    const username = prompt('Username:');
+    const password = prompt('Password:');
+    if (!username || !password) return;
+
+    const result = accountSystem.login(username, password);
+
+    if (result.success) {
+      updateAuthUI();
+      alert('Signed in successfully.');
+    } else {
+      alert(result.error);
+    }
+  });
+
+  logoutBtn.addEventListener('click', () => {
+    accountSystem.logout();
+    updateAuthUI();
+    alert('Signed out.');
+  });
+
+  updateAuthUI();
+</script>
 </body>
 </html>
